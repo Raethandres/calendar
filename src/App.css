@@ -1,22 +1,60 @@
-.App {
-  text-align: center;
+body {
+  margin: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
+.wrapper {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
 }
 
-.App-link {
-  color: #09d3ac;
+.date {
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
 }
+
+.ui.modal {
+  position: absolute;
+  z-index: 1001;
+  text-align: left;
+  background: #FFFFFF;
+  border: none;
+  -webkit-box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transform-origin: 50% 25%;
+  transform-origin: 50% 25%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  border-radius: 0;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  will-change: top, left, margin, transform, opacity;
+}
+
+.ui.modal > :first-child:not(.icon):not(.dimmer),
+.ui.modal > .icon:first-child + *,
+.ui.modal > .dimmer:first-child + *:not(.icon),
+.ui.modal > .dimmer:first-child + .icon + * {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.ui.modal > :last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+

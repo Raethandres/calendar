@@ -1,20 +1,12 @@
 export default function reducer(state={
-	user:undefined
+	dates:[]
 },action){
 	switch(action.type){
-		case "LOGOUT":{
-			return {
-				list:[],
-				genders:[],
-				user:{},
-				type:"",
-				race:[],
-				error:null,
-				feched:false,
-			}
+		case "SETDATES":{
+			return {...state,dates:action.payload}
 		}
-		case "FETTCH":{
-			return {...state,error:null,saved:action.payload}
+		case "CREATEEVENT":{
+			return {...state,dates:action.payload}
 		}
 	}
 	return state

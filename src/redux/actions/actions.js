@@ -1,21 +1,19 @@
 import axios from 'axios';
-import {url} from '../../tools/config'
+import CalendarDates from "calendar-dates";
+const calendarDates = new CalendarDates();
 
 axios.defaults.withCredentials=true;
 
-function receiveUser(json){
-	localStorage.setItem('user', JSON.stringify(json));
-	console.log('receiveUser',json);
+function SetDates(json){
+	console.log('setDates',json);
 	return {
-		type:"FETTCH_USER",
+		type:"SETDATES",
 		payload:json
 	}
 };
 
-export function getUser(){
+export function setDates(){
  	return function(dispatch){
-		axios.get(`${url}common/userdata`,{withCredentials:true})
-		.then(result=>dispatch(receiveUser(result.data)))
-		.catch(error=>{dispatch(receiveUserError(error))});
+		calendarDates.getDates(new Date()).then(res=>dispatch(SetDates(res)))
 	}
 }
