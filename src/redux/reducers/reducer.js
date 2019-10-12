@@ -8,7 +8,7 @@ export default function reducer(state={
 			if(aux){
 				return {...state,selected:aux.dates}
 			}else{
-				let dates=[...state.dates,{month:action.payload.month,dates:action.payload.dates.map(i=>{return {...i,events:[]}})}]
+				let dates=[...state.dates,{month:action.payload.month,dates:action.payload.dates.map(i=>{return {...i,events:[{description:'',color:''}]}})}]
 				let select=action.payload.dates.map(i=>{return {...i,events:[]}});
 				return {...state,dates:dates,selected:select}
 			}
@@ -20,7 +20,7 @@ export default function reducer(state={
 			for (let i = 1; i <action.payload.days ; i++) {
 				dates[pos+i].events.push(action.payload.event);
 			}
-			
+
 			return {...state,selected:dates}
 		}
 	}

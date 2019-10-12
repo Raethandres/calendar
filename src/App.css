@@ -10,6 +10,14 @@ body {
   color: #444;
 }
 
+.wrappe2{
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+}
+
 .box {
   background-color: #444;
   color: #fff;
