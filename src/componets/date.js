@@ -6,7 +6,7 @@ export const Day= ({date,switchModal}) => (
             {date.date}
         </div>
         <div>
-            {date.events}
+            {date.events.map(i=><p>º</p>)}
         </div>
     </div>
 );

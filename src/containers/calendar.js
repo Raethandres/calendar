@@ -9,12 +9,25 @@ state={
     dates:[],
     openDate:false,
     date:{},
-    openEvent:false
+    openEvent:false,
+    year:2019
 }
 
     componentDidMount() {
         let date = new Date();
-        this.props.dispatch(setDates({month:date.getMonth(),year:date.getFullYear()}))
+        this.props.dispatch(setDates({month:0,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:1,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:2,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:3,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:4,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:5,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:6,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:7,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:8,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:9,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:10,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:11,year:date.getFullYear()}));
+        this.props.dispatch(setDates({month:date.getMonth(),year:date.getFullYear()}));
         this.setState({month:date.getMonth(),year:date.getFullYear()})
     }
 
@@ -27,7 +40,6 @@ state={
 
 
     render(){
-
         return (
             <div>
                 <div>
@@ -44,13 +56,6 @@ state={
                         <option value={9}>oct</option>
                         <option value={10}>nov</option>
                         <option value={11}>dic</option>
-
-                    </select>
-                    <select value={this.state.year} name={"year"} onChange={this.onChange}>
-                        <option value={2019}>{2019}</option>
-                        <option value={2020}>{2020}</option>
-                        <option value={2021}>{2021}</option>
-                        <option value={2022}>{2022}</option>
                     </select>
                 </div>
                 <div className={'wrapper'}>
@@ -68,8 +73,6 @@ state={
                         :undefined}
                 </div>
             </div>
-
-
         );
 
     }

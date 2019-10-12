@@ -14,13 +14,14 @@ export default function reducer(state={
 			}
 		}
 		case "CREATEEVENT":{
-			let dates=state.dates;
-			let pos=state.dates.findIndex(i=>i.iso===action.payload.iso)
+			let dates=state.selected;
+			let pos=state.selected.findIndex(i=>i.iso===action.payload.iso)
 			dates[pos].events.push(action.payload.event);
 			for (let i = 1; i <action.payload.days ; i++) {
 				dates[pos+i].events.push(action.payload.event);
 			}
-			return {...state,dates:dates}
+			
+			return {...state,selected:dates}
 		}
 	}
 	return state
