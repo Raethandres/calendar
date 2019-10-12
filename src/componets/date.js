@@ -1,12 +1,12 @@
 import React from 'react';
 
-export const Day= ({date,events,switchModal}) => (
+export const Day= ({date,switchModal}) => (
     <div className={'date'} onClick={()=>switchModal(date)}>
         <div>
-            {date}
+            {date.date}
         </div>
         <div>
-            {events}
+            {date.events}
         </div>
     </div>
 );

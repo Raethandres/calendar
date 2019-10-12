@@ -12,8 +12,22 @@ function SetDates(json){
 	}
 };
 
-export function setDates(){
+function CreateEvent(json){
+	console.log('CreateEvent',json);
+	return {
+		type:"CREATEEVENT",
+		payload:json
+	}
+};
+
+export function setDates({month,year}){
  	return function(dispatch){
-		calendarDates.getDates(new Date()).then(res=>dispatch(SetDates(res)))
+		let date=new Date(year+'-'+(parseInt(month)+1)+'-'+15);
+		calendarDates.getDates(date).then(res=>dispatch(SetDates({month:parseInt(month),dates:res})));
+	}
+}
+export function createEvent(event){
+	return function(dispatch){
+		dispatch(CreateEvent(event))
 	}
 }
