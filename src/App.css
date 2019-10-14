@@ -2,14 +2,6 @@ body {
   margin: 40px;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
-  grid-gap: 10px;
-  background-color: #fff;
-  color: #444;
-}
-
 .wrappe2{
   display: grid;
   grid-template-columns: 100px 100px;
@@ -19,18 +11,18 @@ body {
 }
 
 .box {
-  background-color: #444;
-  color: #fff;
-  border-radius: 5px;
-  padding: 20px;
+  background: #ed3330;
   font-size: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .date {
   border-radius: 5px;
-  padding: 20px;
-  font-size: 150%;
 }
+
+
 
 .modal{
   position: fixed; /* Stay in place */
@@ -49,7 +41,91 @@ body {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
+  width: 30%;
   height: 50%;/* Could be more or less, depending on screen size */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+
+
+.grid-2-col{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+}
+
+.outer-grid {
+  /*background-color: limegreen;*/
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.modal-title{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+}
+
+.modal-grid-1{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.inner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  color: #000;
+}
+
+.span{
+  width: 1.6em;
+  height: 1.6em;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #cccccc;
+  color: #fff;
+  display: inline-block;
+  line-height: 1.6em;
+  margin-right: 15px;
+}
+
+.dateNot{
+  background-color: rgba(0,0,0,0.4);
+}
+
+.button {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ed3330;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  font-size: 10px;
+}
+
+.button:hover {
+  background: #434343;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance:textfield; /* Firefox */
+}

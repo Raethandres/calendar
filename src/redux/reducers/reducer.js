@@ -1,6 +1,9 @@
+import uuid from 'react-uuid'
+
 export default function reducer(state={
 	dates:[],
-	selected:[]
+	selected:[],
+	events:[]
 },action){
 	switch(action.type){
 		case "SETDATES":{
@@ -8,7 +11,7 @@ export default function reducer(state={
 			if(aux){
 				return {...state,selected:aux.dates}
 			}else{
-				let dates=[...state.dates,{month:action.payload.month,dates:action.payload.dates.map(i=>{return {...i,events:[{description:'',color:''}]}})}]
+				let dates=[...state.dates,{month:action.payload.month,dates:action.payload.dates.map(i=>{return {...i,events:[]}})}];
 				let select=action.payload.dates.map(i=>{return {...i,events:[]}});
 				return {...state,dates:dates,selected:select}
 			}
@@ -22,6 +25,24 @@ export default function reducer(state={
 			}
 
 			return {...state,selected:dates}
+		}
+		case 'EVENTSINMONTH':{
+			let aux=state.selected.map(i=>i.events).flat().reduce((unique,item)=>unique.find(i=>i._id===item._id)?unique:[...unique,item],[])
+
+			return {...state,events:aux}
+		}
+		case 'DELETEEVENT':{
+			let after=[];
+			action.payload.map(k=>{
+				after=state.selected.map(i=>{
+				return {...i,events:i.events.filter(j=>j._id!==k)};
+				});
+				console.log(after);
+
+				}
+			)
+			console.log(after);
+			return {...state,selected:after}
 		}
 	}
 	return state
